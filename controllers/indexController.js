@@ -1,4 +1,5 @@
 const CryptoJS = require("crypto-js");
+const axios = require("axios");
 const getRandomInt = require("../utils/getRandomInt");
 
 const SECRET = 'lox';
@@ -25,6 +26,11 @@ class indexController {
                 const range = ranges[getRandomInt(0, 2)]
                 data.push(isEmpty ? 0 : getRandomInt(range[0], range[1]))
             }
+
+            const sum = data.reduce((a, b) => a + b, 0)
+            await axios.put("http://5.45.66.141:8989/api/balance", {amount: sum}, {headers: {
+                "Authorization": "Bearer pX7ApnhjC6WPv3WqNKx/DVwozio6bTv5ZH9arWD1P-ho=u=eVrSKRhW618CghlXF"
+            }})
 
             return res.json({success: true, data});
         } catch (e) {
