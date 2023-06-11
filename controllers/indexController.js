@@ -15,16 +15,14 @@ class indexController {
             }
 
             const data = []
-            const ranges = [
-                [0, 100],
-                [500, 2000],
-                [3000, 5000],
-            ]
+            // const ranges = [
+            //     [0, 40],
+            // ]
 
             for (let i = 0; i < parseInt(count); i++) {
                 const isEmpty = getRandomInt(1, 10) === 10
-                const range = ranges[getRandomInt(0, 2)]
-                data.push(isEmpty ? 0 : getRandomInt(range[0], range[1]))
+                // const range = ranges[getRandomInt(0, 2)]
+                data.push(isEmpty ? 0 : getRandomInt(0, 40))
             }
 
             const sum = data.reduce((a, b) => a + b, 0)
