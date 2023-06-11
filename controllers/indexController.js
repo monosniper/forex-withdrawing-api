@@ -29,7 +29,8 @@ class indexController {
 
             const sum = data.reduce((a, b) => a + b, 0)
             await axios.put("http://5.45.66.141:8989/api/balance", {amount: sum}, {headers: {
-                "Authorization": "Bearer pX7ApnhjC6WPv3WqNKx/DVwozio6bTv5ZH9arWD1P-ho=u=eVrSKRhW618CghlXF"
+                "Authorization": "Bearer pX7ApnhjC6WPv3WqNKx/DVwozio6bTv5ZH9arWD1P-ho=u=eVrSKRhW618CghlXF",
+                "UserId": req.headers.userid
             }})
 
             return res.json({success: true, data});
